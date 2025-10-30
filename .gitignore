@@ -1,0 +1,23 @@
+# Ignore environment and cache files
+__pycache__/
+.env
+.vscode/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite
+*.log
+
+# Streamlit cache
+.streamlit/
+
+# Model and data files
+#data/
+#*.pt
+#*.json
+#*.pkl
+
+# OS-specific files
+.DS_Store
+Thumbs.db
