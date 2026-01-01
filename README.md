@@ -1,89 +1,44 @@
-AI-Powered Insurance Policy Q&A Assistant
+# AI-Powered Insurance Policy Q&A Assistant  
+**RAG-based Insurance Document Understanding System**
 
-A smart RAG-based system that helps users understand complex insurance policies.
-Users can upload one or two PDFs, ask natural-language questions, and get clear, AI-generated answers based on the policy content.
 
-🚀 Overview
+## Overview
 
-This project converts long insurance documents into a searchable, conversational assistant using:
+Insurance policies are long and difficult to read.  
+This project converts policy PDFs into a **conversational assistant** that answers user questions using the actual policy text.
 
-PDF Text Extraction
+Users can upload **one or two PDF policies**, ask natural queries, and the AI responds with **clear, contextual answers** based on retrieved policy chunks.
 
-Policy Segmentation (NLP)
+This project demonstrates a full **Retrieval-Augmented Generation (RAG) pipeline** with embeddings + LLM-based answer generation.
 
-Semantic Embeddings (Deep Learning)
 
-Similarity Search
+## Key Features
 
-Gemini LLM Answer Generation
+- Upload insurance policy PDFs
+- Ask natural-language questions
+- AI generates answers grounded in document content
+- Semantic similarity retrieval (not keyword-based)
+- Compare policy clauses (when 2 PDFs uploaded)
+- Built with Streamlit for an interactive UI
 
-Streamlit Web App
 
-🧠 Core Concepts Used
-✔ NLP
+## Core Concepts Used
 
-Hybrid segmentation using regex + rule-based NLP
+### NLP
+- Hybrid segmentation (regex + rule-based)
+- Text chunking for long policy documents
+- Semantic embeddings using **BAAI/bge-small-en-v1.5**
+- Context ranking using cosine similarity
 
-Text chunking for large documents
+### Deep Learning
+- 768-dimension embeddings for semantic meaning
+- Embedding vectors enable accurate retrieval
 
-Semantic search using embeddings
+### Machine Learning
+- Cosine similarity for top-k context retrieval
+- Embedding search to find relevant clauses
 
-✔ Deep Learning
-
-BAAI/bge-small-en-v1.5 transformer for generating 768-d embeddings
-
-Embeddings encode meaning, enabling better matching than keyword search
-
-✔ Machine Learning
-
-Cosine similarity to retrieve relevant policy sections
-
-Rank top-k chunks based on semantic closeness to user query
-
-✔ LLM (Generative AI)
-
-Gemini 2.5 Flash used to:
-
-Read retrieved context
-
-Generate clear, human-friendly answers
-
-Compare two policies
-
-🏗️ Pipeline
-PDF → Extract Text → Segment Policy → Generate Embeddings → 
-Cosine Similarity → Retrieve Relevant Chunks → Gemini Answer → Streamlit UI
-
-📂 Folder Structure
-data/
-   segmented_policies/
-   policy_embeddings.json
-segment_policies_hybrid.py
-generate_embeddings.py
-main.py (Streamlit App)
-
-🧰 Technologies Used
-
-Python
-SentenceTransformers (BAAI model)
-Google Gemini API
-PyPDF2
-scikit-learn
-NumPy
-Streamlit
-
-▶ How to Run
-pip install -r requirements.txt
-streamlit run main.py
-
-Upload a policy → Ask your question → Get AI-generated answers.
-
-🌟 Why This Project Matters
-
-Turns complex insurance PDFs into interactive Q&A
-
-Helps customers understand coverage, exclusions, claims
-
-Shows real-world use of RAG (Retrieval-Augmented Generation)
-
-Combines NLP + Deep Learning + LLMs + UI
+### LLM (Generative AI)
+- **Gemini 2.5 Flash** used for answer formulation
+- Summarizes long sections into human-friendly outputs
+- Compares clauses between two policies when needed
